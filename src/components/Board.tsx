@@ -23,8 +23,6 @@ export default function Board({ stage, onCorrect, onIncorrect }: Props) {
     return [r, g, b];
   }, [stage]);
 
-  const lineCount = React.useMemo(() => Math.sqrt(tileCount), [tileCount]);
-
   const handleTileClick = React.useCallback(
     (tileId: number) => {
       if (tileId === targetTileId) {
@@ -55,8 +53,8 @@ export default function Board({ stage, onCorrect, onIncorrect }: Props) {
     <main
       style={{
         display: "grid",
-        gridTemplateColumns: `repeat(${lineCount}, 1fr)`,
-        gridTemplateRows: `repeat(${lineCount}, 1fr)`,
+        gridTemplateColumns: `repeat(${Math.sqrt(tileCount)}, 1fr)`,
+        gridTemplateRows: `repeat(${Math.sqrt(tileCount)}, 1fr)`,
         gap: "5px",
         aspectRatio: "1",
       }}
