@@ -15,24 +15,21 @@ export default function App() {
   };
 
   const handleIncorrect = () => {
-    setTimeLimit((currentTimeLimit) => currentTimeLimit - 3);
+    setTimeLimit((currentTimeLimit) =>
+      currentTimeLimit - 3 > 0 ? currentTimeLimit - 3 : 0,
+    );
   };
 
   React.useEffect(() => {
-    setTimeLimit(15);
-  }, [stage]);
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => setTimeLimit((time) => time - 1), 1000);
     if (timeLimit <= 0) {
-      clearTimeout(timer);
       window.alert(`GAME OVER!\n스테이지: ${stage}, 점수: ${score}`);
       setScore(0);
       setStage(1);
       setTimeLimit(15);
     }
+    const timer = setTimeout(() => setTimeLimit((time) => time - 1), 1000);
     return () => clearTimeout(timer);
-  }, [timeLimit, setTimeLimit]);
+  }, [timeLimit]);
 
   return (
     <div>
