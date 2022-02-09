@@ -3,9 +3,11 @@ import Tile from "./Tile";
 
 interface Props {
   stage: number;
+  onCorrect: () => void;
+  onIncorrect: () => void;
 }
 
-export default function Board({ stage }: Props) {
+export default function Board({ stage, onCorrect, onIncorrect }: Props) {
   const [tileCount, targetTileId] = React.useMemo(() => {
     const count = Math.pow(Math.round((stage + 0.5) / 2) + 1, 2);
     const target = Math.floor(Math.random() * count);
@@ -17,10 +19,9 @@ export default function Board({ stage }: Props) {
   const handleTileClick = React.useCallback(
     (tileId: number) => {
       if (tileId === targetTileId) {
-        // TODO: 다음 스테이지
-        console.log("성공");
+        onCorrect();
       } else {
-        // TODO: 시간 감소
+        onIncorrect();
       }
     },
     [targetTileId],
