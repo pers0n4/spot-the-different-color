@@ -52,7 +52,7 @@ export default function Board({ stage, onCorrect, onIncorrect }: Props) {
   );
 
   return (
-    <div
+    <main
       style={{
         display: "grid",
         gridTemplateColumns: `repeat(${lineCount}, 1fr)`,
@@ -62,6 +62,6 @@ export default function Board({ stage, onCorrect, onIncorrect }: Props) {
       }}
     >
       {tiles}
-    </div>
+    </main>
   );
 }

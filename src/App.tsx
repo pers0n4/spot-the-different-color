@@ -67,13 +67,13 @@ export default function App() {
   }, [timeLimit]);
 
   return (
-    <div>
+    <>
       <Header score={score} stage={stage} timeLimit={timeLimit} />
       <Board
         stage={stage}
         onCorrect={handleCorrect}
         onIncorrect={handleIncorrect}
       />
-    </div>
+    </>
   );
 }
