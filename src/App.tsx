@@ -1,5 +1,6 @@
 import React from "react";
 import Board from "./components/Board";
+import Header from "./components/Header";
 
 export default function App() {
   const [stage, setStage] = React.useState(1);
@@ -34,7 +35,7 @@ export default function App() {
 
   return (
     <div>
-      스테이지: {stage}, 남은 시간: {timeLimit}, 점수: {score}
+      <Header score={score} stage={stage} timeLimit={timeLimit} />
       <Board
         stage={stage}
         onCorrect={handleCorrect}
