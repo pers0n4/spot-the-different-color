@@ -1,5 +1,7 @@
 import React from "react";
 import Tile from "./Tile";
+import { differenceColor } from "../helpers/color";
+import type { RGB } from "../helpers/color";
 
 interface Props {
   stage: number;
@@ -12,6 +14,13 @@ export default function Board({ stage, onCorrect, onIncorrect }: Props) {
     const count = Math.pow(Math.round((stage + 0.5) / 2) + 1, 2);
     const target = Math.floor(Math.random() * count);
     return [count, target];
+  }, [stage]);
+
+  const tileColor: RGB = React.useMemo(() => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return [r, g, b];
   }, [stage]);
 
   const lineCount = React.useMemo(() => Math.sqrt(tileCount), [tileCount]);
@@ -39,7 +48,14 @@ export default function Board({ stage, onCorrect, onIncorrect }: Props) {
       }}
     >
       {Array.from({ length: tileCount }, (_, i) => (
-        <Tile key={i} id={i} onClick={handleTileClick} />
+        <Tile
+          key={i}
+          id={i}
+          color={
+            i === targetTileId ? differenceColor(tileColor, stage) : tileColor
+          }
+          onClick={handleTileClick}
+        />
       ))}
     </div>
   );
