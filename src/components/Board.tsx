@@ -36,6 +36,21 @@ export default function Board({ stage, onCorrect, onIncorrect }: Props) {
     [targetTileId],
   );
 
+  const tiles = React.useMemo(
+    () =>
+      Array.from({ length: tileCount }, (_, i) => (
+        <Tile
+          key={i}
+          id={i}
+          color={
+            i === targetTileId ? differenceColor(tileColor, stage) : tileColor
+          }
+          onClick={handleTileClick}
+        />
+      )),
+    [stage],
+  );
+
   return (
     <div
       style={{
@@ -47,16 +62,7 @@ export default function Board({ stage, onCorrect, onIncorrect }: Props) {
         height: "360px",
       }}
     >
-      {Array.from({ length: tileCount }, (_, i) => (
-        <Tile
-          key={i}
-          id={i}
-          color={
-            i === targetTileId ? differenceColor(tileColor, stage) : tileColor
-          }
-          onClick={handleTileClick}
-        />
-      ))}
+      {tiles}
     </div>
   );
 }
