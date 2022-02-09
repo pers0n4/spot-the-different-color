@@ -16,6 +16,22 @@ export default function App() {
     setTimeLimit((currentTimeLimit) => currentTimeLimit - 3);
   };
 
+  React.useEffect(() => {
+    setTimeLimit(15);
+  }, [stage]);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => setTimeLimit((time) => time - 1), 1000);
+    if (timeLimit <= 0) {
+      clearTimeout(timer);
+      window.alert(`GAME OVER!\n스테이지: ${stage}, 점수: ${score}`);
+      setScore(0);
+      setStage(1);
+      setTimeLimit(15);
+    }
+    return () => clearTimeout(timer);
+  }, [timeLimit, setTimeLimit]);
+
   return (
     <div>
       스테이지: {stage}, 남은 시간: {timeLimit}, 점수: {score}
