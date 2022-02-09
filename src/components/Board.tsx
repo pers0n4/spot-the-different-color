@@ -38,7 +38,7 @@ export default function Board({ stage }: Props) {
       }}
     >
       {Array.from({ length: tileCount }, (_, i) => (
-        <div key={i}>{i}</div>
+        <Tile key={i} id={i} onClick={handleTileClick} />
       ))}
     </div>
   );
