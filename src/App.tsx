@@ -1,6 +1,7 @@
 import React from "react";
 import Board from "./components/Board";
 import Header from "./components/Header";
+import "./App.css";
 
 export default function App() {
   const [stage, setStage] = React.useState(1);

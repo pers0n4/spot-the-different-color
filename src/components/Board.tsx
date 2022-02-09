@@ -58,8 +58,7 @@ export default function Board({ stage, onCorrect, onIncorrect }: Props) {
         gridTemplateColumns: `repeat(${lineCount}, 1fr)`,
         gridTemplateRows: `repeat(${lineCount}, 1fr)`,
         gap: "5px",
-        width: "360px",
-        height: "360px",
+        aspectRatio: "1",
       }}
     >
       {tiles}
