@@ -1,25 +1,27 @@
-# New Project
+# 🎨 Spot the Different Color
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+[![TypeScript](https://img.shields.io/badge/-TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=fff)](https://www.typescriptlang.org)
+[![React](https://img.shields.io/badge/-React-61dafb?style=for-the-badge&logo=react&logoColor=333)](https://reactjs.org)
+[![Snowpack](https://img.shields.io/badge/-Snowpack-2e5e82?style=for-the-badge&logo=snowpack&logoColor=fff)](https://www.snowpack.dev)
 
-## Available Scripts
+> 다른 색깔 찾기 게임
 
-### npm start
+## Getting Started
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+### Installation
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+```shell
+git clone https://github.com/pers0n4/spot-the-different-color.git
+cd spot-the-different-color
+pnpm install
+```
 
-### npm run build
+### Start the server
 
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
+```shell
+pnpm start
+```
 
-**For the best production performance:** Add a build bundler plugin like "@snowpack/plugin-webpack" to your `snowpack.config.mjs` config file.
+## LICENSE
 
-### npm test
-
-Launches the application test runner.
-Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
+[MIT License](./LICENSE)
